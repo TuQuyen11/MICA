@@ -1,0 +1,131 @@
+/* Custom CSS for dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.navbar-background {
+    /* background: red !important; */
+    /* border-bottom: 2px solid #3c3f97; */
+}
+
+.top-line {
+    background: #3c3f97;
+}
+
+.navbar-light.bg-light {
+    background-color: #fff !important;
+}
+
+.top-line .social-icon {
+    /* color: #fff !important; */
+}
+
+.header-logo {
+    width: 80px;
+}
+
+.dropdown-menu.show {
+    border: 0;
+}
+
+.dropdown-toggle::after {
+    transition: transform 0.15s linear;
+}
+
+.dropdown-toggle.show::after {
+    transform: rotate(180deg);
+}
+
+.navbar-toggler {
+    height: fit-content;
+}
+
+.nav-link {
+    font-weight: 600 !important;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Your CSS rules for small devices */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Your CSS rules for medium devices */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Your CSS rules for large devices */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .header-logo {
+        width: 120px;
+    }
+    /* Your CSS rules for extra large devices */
+    .nav-link {
+        color: #3c3f97 !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+    }
+
+    .top-line .nav-link {
+        color: #fff !important;
+        font-weight: 400 !important;
+    }
+
+    .top-line .social-icon {
+        color: #fff !important;
+    }
+
+    .dropdown-menu {
+        background: #fff;
+        border: 0 !important;
+        -webkit-box-shadow: 3px 3px 34px -14px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 3px 3px 34px -14px rgba(0, 0, 0, 0.75);
+        box-shadow: 3px 3px 34px -14px rgba(0, 0, 0, 0.75);
+    }
+
+    .dropdown-menu .dropdown-item {
+        padding: 0.8em 1em;
+        font-weight: 600 !important;
+    }
+
+    .dropdown-menu .dropdown-item i {
+        font-size: 0.8em;
+    }
+
+    .dropdown.nav-item,
+    .nav-link {
+        transition: all 0.1s;
+        font-size: 1rem;
+        text-wrap: nowrap;
+    }
+
+    .nav-item:hover,
+    .nav-link:hover,
+    .dropdown-toggle.show {
+        background-color: #3c3f97;
+        color: #fff !important;
+    }
+
+    .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: 0.7rem !important;
+        padding-left: 0.7rem !important;
+    }
+}

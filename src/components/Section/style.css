@@ -1,0 +1,240 @@
+.section {
+}
+
+.section.blue {
+    background: #eaedff;
+}
+
+.section.red {
+    background: #e44b55;
+}
+
+.section.violet {
+    background: #3c3f97;
+}
+
+.section-title {
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.section-title.green {
+    color: #69db69;
+}
+
+.section-title-link {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.info-listing li {
+    margin: 1.5em 0;
+}
+
+.page-title {
+    font-weight: 600;
+    font-size: 2.5em;
+    color: #f15b7a;
+}
+
+.page-content {
+    line-height: 250%;
+}
+
+.page-content img {
+    max-width: 100%;
+}
+
+.sub-heading,
+.sub-heading-2 {
+    color: #3c3f97;
+    border-bottom: 2px solid #3c3f97;
+    font-size: 2em;
+    font-weight: 600;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.sub-heading-2 {
+    color: #333;
+    border-bottom: 0;
+}
+
+.page-content ul.info-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.page-content ul.info-list li {
+    position: relative;
+    padding-left: 3em;
+}
+
+.page-content .icon,
+.page-content ul.info-list li i {
+    width: 2em;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.page-content ul.info-list li i {
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+}
+
+.page-content .info-group-1,
+.page-content .info-group-2,
+.page-content .info-group-3 {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.page-content .info-group-1 .item,
+.page-content .info-group-2 .item,
+.page-content .info-group-3 .item {
+    background: #efefef;
+    border-radius: 8em;
+    position: relative;
+    margin: 0.5em auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5em 1em 0.5em 18px;
+    height: 120px;
+    line-height: 100%;
+}
+
+.page-content .info-group-3 .item {
+    background: #383b8d;
+    color: #fff;
+}
+
+.page-content .info-group-2 .item {
+    border-radius: 0;
+    padding: 0;
+}
+
+.page-content .info-group-1 .item .icon-wrapper,
+.page-content .info-group-2 .item .icon-wrapper,
+.page-content .info-group-3 .item .icon-wrapper {
+    display: flex;
+    background: #383b8d;
+    color: #fff;
+    min-width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.page-content .info-group-2 .item .icon-wrapper {
+    border-radius: 0;
+    height: 120px;
+    min-width: 120px;
+    font-size: 1.5em;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-content .info-group-3 .item .icon-wrapper {
+    background: #2a2c61;
+    color: #fff;
+}
+
+.page-content .info-group-2 .item .icon-wrapper::before {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    content: '';
+    background: #efefef;
+    top: 50%;
+    right: -7.5px;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.page-content .info-group-1 .item .content,
+.page-content .info-group-2 .item .content,
+.page-content .info-group-3 .item .content {
+    padding: 0.5em 1em;
+}
+
+.page-content .table th {
+    vertical-align: top;
+}
+
+.section.wrap {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-green {
+    color: #1b9c1b;
+}
+
+.text-blue {
+    color: #3c3f97;
+}
+
+.text-red {
+    color: #f15b7a;
+}
+
+.custom-accordion .accordion-body {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.custom-accordion .accordion-item {
+    border-radius: 0 !important;
+    border: 0;
+    border-bottom: 1px solid #fff;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #383b8d !important;
+    color: #fff !important;
+}
+
+.custom-accordion .accordion-button {
+    background: #f1f1f1;
+    border-radius: 0 !important;
+}
+
+.table-responsive th,
+.table-responsive td {
+    white-space: nowrap;
+}
+
+.partner-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+    height: 100%;
+}
+
+.partner-tile img {
+    width: 128px;
+}
+
+.partner-tile .partner-name {
+    text-align: center;
+    transform: translateY(-1.6em);
+}
+
+.partner-tile a {
+    text-decoration: underline;
+    color: #e85876 !important;
+}
+
+.partner-tile a:hover {
+    color: #383b8d !important;
+}
+
+.footer-divider {
+    border-top: 2px solid #cbcbcb;
+}

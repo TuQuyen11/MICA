@@ -1,0 +1,42 @@
+footer {
+    background: #fff;
+}
+
+.footer-logo {
+    max-width: 200px;
+}
+
+.footer-link,
+.footer-jump-link {
+    font-weight: 600;
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.footer-jump-link {
+    color: #e9171e !important;
+}
+
+.footer-jump-link:hover,
+.footer-link:hover {
+    opacity: 0.6;
+}
+
+footer .highlight-text {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+footer .small-highlight-text {
+    font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+    footer .highlight-text {
+        font-size: 1em;
+    }
+
+    footer .small-highlight-text {
+        font-size: 1em;
+    }
+}
