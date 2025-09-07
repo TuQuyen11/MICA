@@ -424,7 +424,7 @@ iframe {
         width: 20%;
         min-width: 120px;
         text-align: center;
-        font-weight: 600;
+        /* font-weight: 600; */
     }
     
     .table th:nth-child(2),
