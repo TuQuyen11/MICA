@@ -65,25 +65,26 @@ const ContactUsPage = () => {
                                         <b>Email:</b>{' '}
                                         <a
                                             className="link-light"
-                                            href="mailto:contact@micaheart.org"
+                                            href="mailto:micaheart2024@gmail.com"
                                         >
-                                            contact@micaheart.org
+                                            micaheart2024@gmail.com
                                         </a>
                                     </li>
                                     <li>
                                         <b>Hotline:</b>{' '}
                                         <a
                                             className="link-light"
-                                            href="tel:+0393132456"
+                                            href="tel:+0907240116"
                                         >
-                                            0393.132.456
+                                            0907 240 116 (BS. Nguyễn Duy Khương
+                                            – Tổng Thư ký Hội MICA)
                                         </a>
                                     </li>
                                     <li>
                                         <b>Website:</b>{' '}
                                         <a
                                             className="link-light"
-                                            href="https://micaheart.org"
+                                            href="https://www.micaheart.org"
                                         >
                                             https://www.micaheart.org
                                         </a>
