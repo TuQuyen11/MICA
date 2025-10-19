@@ -615,6 +615,12 @@ const HomePage = () => {
                             xs={12}
                             lg={4}
                         >
+                            <NewsTile id={4} />
+                        </Col>
+                        <Col
+                            xs={12}
+                            lg={4}
+                        >
                             <NewsTile id={1} />
                         </Col>
                         <Col

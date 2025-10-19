@@ -10,6 +10,10 @@ const MedicalNewsPage = () => {
         return (
             <>
                 <NewsTile
+                    id={4}
+                    landscape
+                />
+                <NewsTile
                     id={1}
                     landscape
                 />

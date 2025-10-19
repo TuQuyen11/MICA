@@ -56,11 +56,11 @@ const NewsTile = ({ id, landscape = false }) => {
                                 href={`/post/${id}`}
                                 className="link"
                             >
-                                {title}
+                                {title.length > 60 ? title.substring(0, 60) + '...' : title}
                             </a>
                             <div className="publish-date">{date}</div>
                             <div className="py-3 preview-content">
-                                {shortContent}
+                                {shortContent.length > 100 ? shortContent.substring(0, 100) + '...' : shortContent}
                             </div>
                         </div>
                         <div className="tags">
