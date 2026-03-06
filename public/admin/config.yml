@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: trantuquyenn1129-code/Post
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
