@@ -1,7 +1,7 @@
 {
     "name": "freelance-web-ilc",
     "version": "0.1.0",
-    "homepage": "https://tuquyen11.github.io/MICA/",
+    "homepage": "https://tuquyen11.github.io/MICA",
     "private": true,
     "dependencies": {
         "@eslint/compat": "^1.2.6",
