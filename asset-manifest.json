@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MICA/static/css/main.b1ff0e65.css",
+    "main.js": "/MICA/static/js/main.5c2d7723.js",
+    "index.html": "/MICA/index.html",
+    "main.b1ff0e65.css.map": "/MICA/static/css/main.b1ff0e65.css.map",
+    "main.5c2d7723.js.map": "/MICA/static/js/main.5c2d7723.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1ff0e65.css",
+    "static/js/main.5c2d7723.js"
+  ]
+}

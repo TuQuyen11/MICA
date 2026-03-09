@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: TuQuyen11/MICA
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "public/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "public/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image"}
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tag", name: "tag", widget: "list", field: {label: "Tag", name: "tag", widget: "string"} }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
