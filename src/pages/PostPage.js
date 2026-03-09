@@ -1,110 +1,161 @@
-import React, { useEffect, useState } from 'react';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import Section from 'components/Section';
-import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import React, { useEffect, useState } from "react";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import Section from "components/Section";
+import { Container } from "react-bootstrap";
+import { useParams } from "react-router";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const PostPage = () => {
-    const [news, setNews] = useState({});
-    const [loading, setLoading] = useState(true);
+  const [news, setNews] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    let params = useParams();
-    const id = params.id;
+  const { id } = useParams();
 
-    const { title = '', date = '', tags = [], content = '' } = news || {};
+  const parseMarkdown = (text) => {
+    const parts = text.split("---");
 
-    useEffect(() => {
-        const fetchNews = async () => {
-            const jsonData = await fetch(`/json/posts/${id}.json`);
-            const news = await jsonData.json();
-            setNews(news);
-        };
+    if (parts.length < 3) {
+      return { data: {}, content: text };
+    }
 
-        fetchNews();
-    }, [id]);
+    const frontmatter = parts[1];
+    const content = parts.slice(2).join("---");
 
-    useEffect(() => {
-        if (news) {
-            setLoading(false);
-        }
-    }, [news]);
+    const data = {};
+    const lines = frontmatter.split("\n");
 
+    let currentKey = null;
+
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+
+      if (trimmed.startsWith("-") && currentKey) {
+        if (!Array.isArray(data[currentKey])) data[currentKey] = [];
+        data[currentKey].push(trimmed.replace("-", "").trim());
+        return;
+      }
+
+      const [key, ...rest] = trimmed.split(":");
+      if (!key) return;
+
+      const value = rest.join(":").trim();
+
+      if (value === "") {
+        currentKey = key.trim();
+        data[currentKey] = [];
+      } else {
+        data[key.trim()] = value;
+        currentKey = key.trim();
+      }
+    });
+
+    return { data, content };
+  };
+
+  useEffect(() => {
+    const loadPost = async () => {
+      try {
+        const res = await fetch(`/content/blog/${id}.md`);
+        const text = await res.text();
+
+        const { data, content } = parseMarkdown(text);
+
+        setNews({
+          title: data.title || "",
+          date: data.date || "",
+          tag: data.tag || [],
+          image: data.image || "",
+          content: content,
+        });
+
+        setLoading(false);
+      } catch (err) {
+        console.error("Load post error:", err);
+      }
+    };
+
+    if (id) loadPost();
+  }, [id]);
+
+  if (loading) {
     return (
-        <>
-            <Header />
-            <Section scheme="white">
-                <Container>
-                    {loading && 'Đang tải bài viết'}
-                    {!loading && (
-                        <>
-                            <div
-                                style={{
-                                    backgroundImage: `url(/post/${id == '4' ? 'conference_main' : id}.webp)`,
-                                    backgroundSize: 'cover',
-                                    backgroundPositionY: '25%',
-                                    width: '100%',
-                                    aspectRatio: '3',
-                                }}
-                            />
-                            <div className="page-title mt-4">{title}</div>
-                            <div className="d-flex justify-content-between">
-                                <div
-                                    className="tags"
-                                    style={{
-                                        lineHeight: '100%',
-                                    }}
-                                >
-                                    {tags.map((tag, index) => (
-                                        <span
-                                            key={index}
-                                            className="tag"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div
-                                    style={{
-                                        color: '#999',
-                                        fontStyle: 'italic',
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    Ngày đăng: {date}
-                                </div>
-                            </div>
-                            <div className="mt-4 page-content">
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: content,
-                                    }}
-                                ></div>
-                                <div
-                                    className="tags text-end"
-                                    style={{
-                                        lineHeight: '100%',
-                                    }}
-                                >
-                                    Từ khóa:
-                                    {tags.map((tag, index) => (
-                                        <span
-                                            key={index}
-                                            className="tag"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </>
-                    )}
-                    <hr className="mt-5 footer-divider" />
-                </Container>
-            </Section>
-            <Footer />
-        </>
+      <>
+        <Header />
+        <Section scheme="white">
+          <Container>Đang tải bài viết...</Container>
+        </Section>
+        <Footer />
+      </>
     );
+  }
+
+  const { title, date, tag, content, image } = news;
+
+  return (
+    <>
+      <Header />
+
+      <Section scheme="white">
+        <Container>
+          {image && (
+            <div
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                aspectRatio: "3",
+              }}
+            />
+          )}
+
+          <div className="page-title mt-4">{title}</div>
+
+          <div className="d-flex justify-content-between">
+            <div className="tags">
+              {tag.map((t, index) => (
+                <span key={index} className="tag">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div
+              style={{
+                color: "#999",
+                fontStyle: "italic",
+                fontWeight: 600,
+              }}
+            >
+              Ngày đăng: {date ? new Date(date).toLocaleDateString("vi-VN") : ""}
+            </div>
+          </div>
+
+          <div className="mt-4 page-content">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {content}
+            </ReactMarkdown>
+
+            <div className="tags text-end">
+              Từ khóa:
+              {tag.map((t, index) => (
+                <span key={index} className="tag">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <hr className="mt-5 footer-divider" />
+        </Container>
+      </Section>
+
+      <Footer />
+    </>
+  );
 };
 
 export default PostPage;
