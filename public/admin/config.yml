@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: trantuquyenn1129-code/Post
+  repo: TuQuyen11/MekongMedical
   branch: main
 
 media_folder: "images/uploads"
